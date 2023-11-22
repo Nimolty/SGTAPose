@@ -10,8 +10,8 @@ Estimation from Image Sequence".
 - [ ] Inference Code Release
 
 # Installation
-* Install Pytorch
+* **Install Pytorch**
 ```
 pip install torch==1.9.1+cu111 torchvision==0.10.1+cu111 torchaudio==0.9.1 --extra-index-url https://download.pytorch.org/whl/cu111 -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
-* Install from 
+* **Install from requirements.txt**
