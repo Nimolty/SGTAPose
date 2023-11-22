@@ -23,6 +23,6 @@ pip install -r requirements.txt
 cd SGTAPose/lib/model/networks
 git clone https://github.com/lbin/DCNv2.git
 cd DCMv2
-git checkout pytorch_xxx (xxx refers to different versions of torch, e.g. git checkout pytorch_1.9. You need to ensure the available DCNv2's version agrees with your torch's version)
+git checkout pytorch_xxx #(xxx refers to different versions of torch, e.g. git checkout pytorch_1.9. You need to ensure the available DCNv2's version agrees with your torch's version)
 ```
 
