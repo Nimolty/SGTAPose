@@ -39,8 +39,9 @@ cd SGTAPose/rf_tools
 # Training Dataset
 
 # Training Code
-* **Training in parallel settings**:
-Here we offer the training code in parallel settings. Run the following script to train the model.
+Here we offer the training code in parallel settings. Before you start training, you need to change some paths regarding dataset in the sgtapose/scripts/train_scripts.
+
+Run the following script to train the model.
 ```
 cd sgtapose
 bash scripts/train_scripts.sh
