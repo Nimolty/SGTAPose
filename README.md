@@ -20,7 +20,7 @@ pip install -r requirements.txt
 ```
 * **Compile Deformable Convolution Networks**
 ```
-cd SGTAPose/lib/model/networks
+cd sgtapose/lib/model/networks
 git clone https://github.com/lbin/DCNv2.git
 cd DCNv2
 git checkout pytorch_xxx ###(xxx refers to different versions of torch, e.g. git checkout pytorch_1.9. You need to ensure the available DCNv2's version agrees with your torch's version)
@@ -32,7 +32,7 @@ python setup.py install
 ```
 * **Edit LM Solver Path**
 ```
-cd SGTAPose/rf_tools
+cd sgtapose/rf_tools
 # In the LM.py, you have to change the path in line 10 to your own absolute path
 ```
 
