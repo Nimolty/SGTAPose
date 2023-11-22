@@ -18,3 +18,10 @@ pip install torch==1.9.1+cu111 torchvision==0.10.1+cu111 torchaudio==0.9.1 --ext
 ```
 pip install -r requirements.txt
 ```
+* **Compile Deformable Convolution Networks**
+```
+cd SGTAPose/lib/model/networks
+git clone https://github.com/lbin/DCNv2.git
+
+```
+
