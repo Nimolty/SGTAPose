@@ -26,8 +26,13 @@ cd DCNv2
 git checkout pytorch_xxx ###(xxx refers to different versions of torch, e.g. git checkout pytorch_1.9. You need to ensure the available DCNv2's version agrees with your torch's version)
 ./make.sh
 ```
-* Install sgtapose package
+* **Install sgtapose package**
 ```
 python setup.py install
+```
+* **Edit LM Solver Path**
+```
+cd SGTAPose/rf_tools
+# In the LM.py, you have to change the path in line 10 to your own absolute path
 ```
 
