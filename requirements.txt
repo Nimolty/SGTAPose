@@ -1,1 +1,25 @@
-# requirements
+future
+albumentations
+enum34
+matplotlib
+numpy
+opencv-python
+pandas
+Pillow
+pyrr
+pytest
+ruamel.yaml
+seaborn
+scipy
+tensorboardX
+tqdm
+webcolors
+gdown
+einops
+progress
+tensorboard
+pycocotools
+pyquaternion
+sympy
+transforms3d
+setuptools==59.5.0
