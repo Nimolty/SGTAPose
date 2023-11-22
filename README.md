@@ -8,4 +8,8 @@ Estimation from Image Sequence".
 - [ ] Training Code Release
 - [ ] Inference Code Release
 
-
+# Installation
+* ##Pytorch
+```
+pip install numpy
+```
