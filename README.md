@@ -36,3 +36,9 @@ cd SGTAPose/rf_tools
 # In the LM.py, you have to change the path in line 10 to your own absolute path
 ```
 
+# Training Dataset
+
+# Training Code
+* **Training in parallel settings**
+Here we offer the training code
+
