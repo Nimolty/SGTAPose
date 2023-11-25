@@ -84,6 +84,7 @@ SGTAPose
   --panda-orb
   --panda-3cam_azure
   --panda-3cam_realsense
+  --syn_test
 --pretrained_model
 --dream_real_info
 ```
