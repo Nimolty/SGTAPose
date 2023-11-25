@@ -5,7 +5,7 @@ Estimation from Image Sequence".
 [\[PDF\]](https://arxiv.org/pdf/2307.12106.pdf) [\[Video\]](https://www.youtube.com/watch?v=5fQp-yBubZs&t=12s)
 # Code Release Schedule
 - [x] Installation
-- [ ] Training Dataset Release
+- [x] Training Dataset Release
 - [x] Training Code Release
 - [ ] Inference Code Release
 
