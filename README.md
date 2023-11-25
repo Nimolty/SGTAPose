@@ -5,7 +5,7 @@ Estimation from Image Sequence".
 [\[PDF\]](https://arxiv.org/pdf/2307.12106.pdf) [\[Video\]](https://www.youtube.com/watch?v=5fQp-yBubZs&t=12s)
 # Code Release Schedule
 - [x] Installation
-- [x] Training Dataset Release
+- [x] Dataset and Pretrained model Release
 - [x] Training Code Release
 - [ ] Inference Code Release
 
@@ -36,9 +36,9 @@ cd sgtapose/rf_tools
 # In the LM.py, you have to change the path in line 10 to your own absolute path
 ```
 
-# Training Dataset
-We have a big dataset which involves two parts: franka_data_1020 and near_franka_data_1024. We train our model over the two datasets.
-You can use the following command to download the dataset
+# Dataset
+We have a big training dataset which involves two parts: franka_data_1020 and near_franka_data_1024. We train our model over the two datasets.
+You can use the following command to download the dataset from the [website](https://mirrors.pku.edu.cn/dl-release/SGTAPose_CVPR2023) 
 ```
 mkdir data
 cd data
