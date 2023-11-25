@@ -44,6 +44,9 @@ mkdir data
 cd data
 ### download franka_data_1020.tar.gz from https://mirrors.pku.edu.cn/dl-release/SGTAPose_CVPR2023
 ### download near_franka_data_1024.tar.gz from https://mirrors.pku.edu.cn/dl-release/SGTAPose_CVPR2023
+tar -Jxvf franka_data_1020.tar.gz
+tar -Jxvf near_franka_data_1024.tar.gz
+
 ```
 
 
