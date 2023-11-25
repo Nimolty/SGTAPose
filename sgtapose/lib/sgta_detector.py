@@ -29,7 +29,6 @@ from .utils.image import dream_draw_umich_gaussian, gaussian_radius
 from .utils.post_process import dream_generic_post_process
 from .utils.debugger import Debugger
 from .utils.tracker import Tracker
-from .dataset.dataset_factory import get_dataset
 import sgtapose
 #import numba
 #from numba import jit
