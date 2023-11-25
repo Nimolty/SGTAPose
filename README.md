@@ -90,10 +90,17 @@ SGTAPose
 
 
 # Training Code
-Here we offer the training code in parallel settings. Before you start training, you need to change some paths regarding dataset in the sgtapose/scripts/train_scripts.
+Here we offer the training code in parallel settings. Before you start training, we need to change some paths regarding dataset in the sgtapose/scripts/train_scripts.
 
 Run the following script to train the model.
 ```
 cd sgtapose
 bash scripts/train_scripts.sh
+```
+
+# Inference Code
+Here we offer the inference code. Perhaps we need to change some paths and checkpoint names. We provide the following script:
+```
+cd sgtapose
+bash scripts/inference_scripts.sh
 ```
