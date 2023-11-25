@@ -619,7 +619,7 @@ def analyze_ndds_center_dream_dataset(
     num_workers = opt.num_workers
     gpu_ids = opt.gpus
     if dataset_path is None:
-        dataset_path = "/DATA/disk1/hyperplane/ty_data/"
+        dataset_path = opt.infer_dataset
     
     
     # Input argument handling
@@ -666,10 +666,7 @@ def analyze_ndds_center_dream_dataset(
             object_keypoints = data["keypoints"]
             
             if is_real and "panda" in is_real:
-                #print(object_keypoints)
-                #print(keypoint_names)
                 for idx, kp_name in enumerate(keypoint_names):
-                    # print("object_keypoints", object_keypoints[idx])
                     projections = camera_K @ np.array(object_keypoints[idx]["location"])
                     projections /= projections[2]
                     gt_kps_raw.append(projections.tolist()[:2])
@@ -812,12 +809,6 @@ def analyze_ndds_center_dream_dataset(
                 kp_pos_gt_pnp, kp_projs_est_pnp, camera_K
             )
             
-#            pnp_retval, translation, quaternion = sgtapose.geometric_vision.solve_pnp(
-#                kp_pos_gt_pnp, kp_projs_gt_pnp, camera_K
-#            )
-#            pnp_retval, translation, quaternion, inliers = sgtapose.geometric_vision.solve_pnp_ransac(kp_pos_gt_pnp, kp_projs_est_pnp, camera_K)
-            
-            #print("pnp_retval", pnp_retval)
             pnp_attempts_successful.append(pnp_retval)
 
             all_n_inframe_projs_gt.append(n_inframe_projs_gt)
