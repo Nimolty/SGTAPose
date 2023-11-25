@@ -32,7 +32,7 @@
 
 CUDA_VISIBLE_DEVICES=0 python inference.py tracking \
                               --real_info_path ../dream_real_info \
-                              --infer_dataset /DATA/disk1/hyperplane/ty_data \
+                              --infer_dataset ../data \
                               --load_model ../pretrained_model/ckpt/model_20.pth  \
                               --pre_hm \
                               --same_aug \
