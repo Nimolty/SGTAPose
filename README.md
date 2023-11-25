@@ -46,7 +46,30 @@ cd data
 ### download near_franka_data_1024.tar.gz from https://mirrors.pku.edu.cn/dl-release/SGTAPose_CVPR2023
 tar -Jxvf franka_data_1020.tar.gz
 tar -Jxvf near_franka_data_1024.tar.gz
-
+```
+Besides, the pretrained model and inference results are also available in the [website](https://mirrors.pku.edu.cn/dl-release/SGTAPose_CVPR2023). We can 
+use the following command.
+```
+### download pretrained_model.zip from https://mirrors.pku.edu.cn/dl-release/SGTAPose_CVPR2023
+unzip pretrained_model.zip
+```
+Since SGTAPose relies on the image sequences as inputs, so we manually split the real-world dataset into several videos. We can download the split information as follows:
+```
+### download dream_real_info.zip from https://mirrors.pku.edu.cn/dl-release/SGTAPose_CVPR2023
+unzip dream_real_info.zip
+```
+After downloading the data, pretrained model, and split information, we can see the code structure as follows:
+```
+SGTAPose
+  sgtapose
+  data
+      franka_data_1020
+      near_franka_data_1024
+      panda-orb
+      panda-3cam_azure
+      panda-3cam_realsense
+  pretrained_model
+  dream_real_info
 ```
 
 
