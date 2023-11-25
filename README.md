@@ -7,7 +7,7 @@ Estimation from Image Sequence".
 - [x] Installation
 - [x] Dataset and Pretrained model Release
 - [x] Training Code Release
-- [ ] Inference Code Release
+- [x] Inference Code Release
 
 # Installation
 * **Install Pytorch**
@@ -36,19 +36,35 @@ cd sgtapose/rf_tools
 # In the LM.py, you have to change the path in line 10 to your own absolute path
 ```
 
-# Dataset
+# Dataset and Pretrained model
 We have a big training dataset which involves two parts: franka_data_1020 and near_franka_data_1024. We train our model over the two datasets.
-You can use the following command to download the dataset from the [website](https://mirrors.pku.edu.cn/dl-release/SGTAPose_CVPR2023) 
+Further, we provide a validation dataset named as syn_test.
+We can use the following command to download the dataset from the [website](https://mirrors.pku.edu.cn/dl-release/SGTAPose_CVPR2023) 
 ```
 mkdir data
 cd data
 ### download franka_data_1020.tar.gz from https://mirrors.pku.edu.cn/dl-release/SGTAPose_CVPR2023
 ### download near_franka_data_1024.tar.gz from https://mirrors.pku.edu.cn/dl-release/SGTAPose_CVPR2023
+### download syn_test.zip from https://mirrors.pku.edu.cn/dl-release/SGTAPose_CVPR2023
 tar -Jxvf franka_data_1020.tar.gz
 tar -Jxvf near_franka_data_1024.tar.gz
+unzip syn_test.zip
+cd ..
 ```
+We also need to download the real-world test dataset from the [website](https://drive.google.com/drive/folders/1LxoLOUE43jAPXSxfuTSyr7LBebkEn54v?usp=drive_link)
+Specifically, we need to download these:
+```
+cd data
+### download panda-3cam_azure.zip from https://drive.google.com/drive/folders/1LxoLOUE43jAPXSxfuTSyr7LBebkEn54v?usp=drive_link
+### download panda-3cam_realsense.zip from https://drive.google.com/drive/folders/1LxoLOUE43jAPXSxfuTSyr7LBebkEn54v?usp=drive_link
+### download panda-orb.zip from https://drive.google.com/drive/folders/1LxoLOUE43jAPXSxfuTSyr7LBebkEn54v?usp=drive_link
+unzip panda-3cam_azure.zip
+unzip panda-3can_realsense.zip
+unzip panda-orb.zip
+```
+
 Besides, the pretrained model and inference results are also available in the [website](https://mirrors.pku.edu.cn/dl-release/SGTAPose_CVPR2023). We can 
-use the following command.
+use the following command to download them.
 ```
 ### download pretrained_model.zip from https://mirrors.pku.edu.cn/dl-release/SGTAPose_CVPR2023
 unzip pretrained_model.zip
@@ -61,15 +77,15 @@ unzip dream_real_info.zip
 After downloading the data, pretrained model, and split information, we can see the code structure as follows:
 ```
 SGTAPose
-  sgtapose
-  data
-      franka_data_1020
-      near_franka_data_1024
-      panda-orb
-      panda-3cam_azure
-      panda-3cam_realsense
-  pretrained_model
-  dream_real_info
+--sgtapose
+--data
+  --franka_data_1020
+  --near_franka_data_1024
+  --panda-orb
+  --panda-3cam_azure
+  --panda-3cam_realsense
+--pretrained_model
+--dream_real_info
 ```
 
 
