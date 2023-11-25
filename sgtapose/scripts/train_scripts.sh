@@ -11,6 +11,7 @@ CUDA_VISIBLE_DEVICES=0,1,2 python -m torch.distributed.launch --nproc_per_node=3
                             --dataset ../data/franka_data_1020 \
                             --add_dataset ../data/near_franka_data_1024 \
                             --val_dataset ../data/syn_test \
+                            --root_dir "../result" \
                             --is_real panda-3cam_realsense \
                             --num_epochs 20  \
                             --batch_size 4 \
