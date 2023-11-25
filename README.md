@@ -37,7 +37,14 @@ cd sgtapose/rf_tools
 ```
 
 # Training Dataset
-We have a big dataset which involves two parts: franka_data_1020 and 
+We have a big dataset which involves two parts: franka_data_1020 and near_franka_data_1024. We train our model over the two datasets.
+You can use the following command to download the dataset
+```
+mkdir data
+cd data
+### download franka_data_1020.tar.gz from https://mirrors.pku.edu.cn/dl-release/SGTAPose_CVPR2023
+### download near_franka_data_1024.tar.gz from https://mirrors.pku.edu.cn/dl-release/SGTAPose_CVPR2023
+```
 
 
 # Training Code
