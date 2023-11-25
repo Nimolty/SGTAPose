@@ -444,7 +444,7 @@ class opts(object):
           "Link4", 
           "Link6",
           "Link7",
-          "panda_hand",
+          "Panda_hand",
           ]
       elif opt.robot == "KUKA_LBR_Iiwa14":
           keypoint_names = [

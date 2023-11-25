@@ -687,7 +687,7 @@ def load_seq_keypoints(data_path, object_name, keypoint_names, camera_K):
 #    object_joints = data["keypoints"]
     
     
-    Mat = np.array(object_keypoints[0]["R2C_mat"])
+    Mat = np.array(object_keypoints[0]["R2C Mat"])
     Inv = Mat.T
     Trans = np.array(object_keypoints[0]["location_wrt_cam"])
     
