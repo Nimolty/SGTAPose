@@ -32,7 +32,6 @@ class CenterTrackSeqDataset(TorchDataset):
         seq_frame = False,
     ): 
         self.ndds_seq_dataset_data = ndds_seq_dataset
-        # self.ndds_seq_dataset_config = dataset_config
         self.manipulator_name = manipulator_name
         self.keypoint_names = keypoint_names
         self.opt = opt
@@ -46,8 +45,7 @@ class CenterTrackSeqDataset(TorchDataset):
         self.camera_K = np.array([[502.30, 0.0, 319.75], [0.0, 502.30, 179.75], [0.0, 0.0, 1.0]])
         print('seq_count_all', self.seq_count_all)
         
-        # If include_belief_maps is specified, include_ground_truth must also be
-        # TBD: revisit better way of passing inputs, maybe to make one argument instead of two
+
         
         if include_belief_maps:
             assert (
@@ -61,13 +59,7 @@ class CenterTrackSeqDataset(TorchDataset):
         return len(self.ndds_seq_dataset_data)
     
     def __getitem__(self, index):
-        # {prev_frame_name; prev_frame_img_path, 
-        # prev_frame_data_path, next_frame_name, next_frame_img_path, next_frame_data_path}
-        
-        # Parse this datum
         datum = self.ndds_seq_dataset_data[index]
-        # print('datum', datum)
-        # print('datum', datum)
         if self.seq_frame:
             Frame, ind = datum["next_frame_name"].split('/')
             ind = int(ind)
@@ -99,7 +91,6 @@ class CenterTrackSeqDataset(TorchDataset):
                 next_frame_data_path = datum["next_frame_data_path"]
         
         if self.include_ground_truth:
-            # print("prev_frame_data", prev_frame_data_path)
             prev_keypoints = sgtapose.utilities.load_seq_keypoints(prev_frame_data_path, \
                             self.manipulator_name, self.keypoint_names, self.camera_K)
             next_keypoints = sgtapose.utilities.load_seq_keypoints(next_frame_data_path, \
@@ -297,14 +288,12 @@ class CenterTrackThreeDataset(TorchDataset):
             next_keypoints = sgtapose.utilities.load_seq_keypoints(next_frame_data_path, \
                             self.manipulator_name, [])
         
-        # load iamge and transform to network input resolution --pre augmentation
         pprev_image_rgb_raw = cv2.imread(pprev_frame_img_path)
         prev_image_rgb_raw = cv2.imread(prev_frame_img_path)
         next_image_rgb_raw = cv2.imread(next_frame_img_path)
         assert prev_image_rgb_raw.shape == next_image_rgb_raw.shape
         assert pprev_image_rgb_raw.shape == next_image_rgb_raw.shape
         
-        # print('prev_image_rgb_raw', prev_image_rgb_raw.shape)
         height, width, _ = prev_image_rgb_raw.shape
         c = np.array([prev_image_rgb_raw.shape[1] / 2., prev_image_rgb_raw.shape[0] / 2.], dtype=np.float32) # (width/2, height/2)
         s = max(prev_image_rgb_raw.shape[0], prev_image_rgb_raw.shape[1]) * 1.0
@@ -402,12 +391,6 @@ class CenterTrackThreeDataset(TorchDataset):
             "config" : datum})
         
         
-#        print('next_kp_projs_net_output_as_tensor', next_kp_projs_net_output_as_tensor)
-#        print("next_keypoint_projections_output_int", next_kp_projs_net_output_as_tensor_int)
-#        print("prev_keypoint_projections_output", prev_kp_projs_net_output_as_tensor)
-#        print('reg', sample['reg'])
-#        print('tracking', sample["tracking"])
-        
         if self.include_belief_maps:
             prev_origin_maps_as_whole_np = sgtapose.utilities.get_prev_hm(prev_kp_projs_raw_np, trans_input,self.input_w, self.input_h, width, height, hm_disturb = self.opt.hm_disturb, lost_disturb=self.opt.lost_disturb) 
             prev_origin_maps_as_whole_as_tensor = torch.from_numpy(prev_origin_maps_as_whole_np).float()
@@ -473,7 +456,6 @@ class CenterTrackSeqDepthDataset(TorchDataset):
         seq_frame = False,
     ): 
         self.ndds_seq_dataset_data = ndds_seq_dataset
-        # self.ndds_seq_dataset_config = dataset_config
         self.manipulator_name = manipulator_name
         self.keypoint_names = keypoint_names
         self.opt = opt
@@ -487,8 +469,6 @@ class CenterTrackSeqDepthDataset(TorchDataset):
         self.camera_K = np.array([[502.30, 0.0, 319.75], [0.0, 502.30, 179.75], [0.0, 0.0, 1.0]])
         print('seq_count_all', self.seq_count_all)
         
-        # If include_belief_maps is specified, include_ground_truth must also be
-        # TBD: revisit better way of passing inputs, maybe to make one argument instead of two
         
         if include_belief_maps:
             assert (
@@ -502,13 +482,7 @@ class CenterTrackSeqDepthDataset(TorchDataset):
         return len(self.ndds_seq_dataset_data)
     
     def __getitem__(self, index):
-        # {prev_frame_name; prev_frame_img_path, 
-        # prev_frame_data_path, next_frame_name, next_frame_img_path, next_frame_data_path}
-        
-        # Parse this datum
         datum = self.ndds_seq_dataset_data[index]
-        # print('datum', datum)
-        # print('datum', datum)
         if self.seq_frame:
             Frame, ind = datum["next_frame_name"].split('/')
             ind = int(ind)
@@ -539,7 +513,6 @@ class CenterTrackSeqDepthDataset(TorchDataset):
                 next_frame_data_path = datum["next_frame_data_path"]
         
         if self.include_ground_truth:
-            # print("prev_frame_data", prev_frame_data_path)
             prev_keypoints = sgtapose.utilities.load_depth_keypoints(prev_frame_data_path, \
                             self.manipulator_name, self.keypoint_names, self.camera_K)
             next_keypoints = sgtapose.utilities.load_depth_keypoints(next_frame_data_path, \
@@ -550,11 +523,9 @@ class CenterTrackSeqDepthDataset(TorchDataset):
             next_keypoints = sgtapose.utilities.load_depth_keypoints(next_frame_data_path, \
                             self.manipulator_name, [], self.camera_K)
         
-        # load iamge and transform to network input resolution --pre augmentation
+
         prev_image_rgb_raw = cv2.imread(prev_frame_img_path)
         next_image_rgb_raw = cv2.imread(next_frame_img_path)
-
-        # print("shape", prev_image_rgb_raw.shape)
         assert prev_image_rgb_raw.shape == next_image_rgb_raw.shape
         
         height, width, _ = prev_image_rgb_raw.shape
@@ -594,7 +565,6 @@ class CenterTrackSeqDepthDataset(TorchDataset):
         prev_kp_projs_net_output_as_tensor = torch.from_numpy(
                 np.array(prev_kp_projs_net_output_np)
                 ).float()
-        # prev_kp_projs_net_output_as_tensor_int = prev_kp_projs_net_output_as_tensor.int()
         
         
         next_keypoint_positions_wrt_cam_as_tensor = torch.from_numpy(
