@@ -37,6 +37,8 @@ cd sgtapose/rf_tools
 ```
 
 # Training Dataset
+We have a big dataset which involves two parts: franka_data_1020 and 
+
 
 # Training Code
 Here we offer the training code in parallel settings. Before you start training, you need to change some paths regarding dataset in the sgtapose/scripts/train_scripts.
