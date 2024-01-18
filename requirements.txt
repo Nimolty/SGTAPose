@@ -19,7 +19,7 @@ gdown
 einops
 progress
 tensorboard
-pycocotools
+pycocotools 
 pyquaternion
 sympy
 transforms3d
